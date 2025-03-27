@@ -111,3 +111,12 @@ section a{
     color: #000;
     font-weight: 600;
 }
+@media(max-width: 1100px){
+    .wrapper{
+        width: min(600px, 100%);
+        border-radius: 0;
+    }
+}
+#error-message{
+    color:#3a4747;
+}
