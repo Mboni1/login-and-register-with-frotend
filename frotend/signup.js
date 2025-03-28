@@ -38,6 +38,15 @@
             errors.push('password is required')
             password_input.parentElement.classList.add('incorrect')
         }
+        if(password.length < 8){
+            errors.push('Password must be at least 8 characters')
+            password_input.parentElement.classList.add('incorrect')
+        }
+        if (password !== reapetPassword ) {
+            errors.push('password does not match reapted password')
+            password_input.parentElement.classList.add('incorrect')
+            reapeat_password_input.parentElement.classList.add('incorrect')
+        }
         return errors;
     }
   
@@ -47,6 +56,7 @@
         input.addEventListener('input', () => {
             if(input.parentElement.classList.contains('incorrect')){
              input.parentElement.classList.remove('incorrect')   
+             error_message.innerText =''
             }
         })
     })
