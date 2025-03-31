@@ -1,0 +1,59 @@
+const LoginPage = () => {
+return `
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+    <p id="error-message" style="color: red; display: none;">Invalid username or password</p>
+</div>
+<script>
+    document.getElementById('login-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username === 'admin' && password === 'password123') {
+            alert('Login successful!');
+            window.location.href = 'dashboard.html';
+        } else {
+            document.getElementById('error-message').style.display = 'block';
+        }
+    });
+</script>
+<style>
+    .login-container {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    input {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 8px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: blue;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+`;
+};
+
+document.body.innerHTML = LoginPage();
